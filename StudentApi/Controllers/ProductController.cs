@@ -44,5 +44,37 @@ namespace StudentApi.Controllers
             var createdProduct = await _productRepository.AddProduct(product);
             return CreatedAtAction(nameof(GetProductById), new { id = createdProduct.Id }, createdProduct);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateProduct(int id, [FromBody] Product product)
+        {
+            if (product == null || id != product.Id)
+            {
+                return BadRequest("Invalid product data");
+            }
+
+            var existingProduct = await _productRepository.GetProductById(id);
+            if (existingProduct == null)
+            {
+                return NotFound($"Product with ID {id} not found");
+            }
+
+            var updatedProduct = await _productRepository.UpdateProduct(product);
+            return Ok(updatedProduct);
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteProduct(int id)
+        {
+            var existingProduct = await _productRepository.GetProductById(id);
+            if (existingProduct == null)
+            {
+                return NotFound($"Product with ID {id} not found");
+            }
+
+            await _productRepository.DeleteProduct(id);
+
+            // Return the updated product list
+            return CreatedAtAction(nameof(ProductList), null, await _productRepository.GetAllProducts());
+        }
     }
 }

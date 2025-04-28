@@ -36,5 +36,17 @@ namespace StudentApi.Reopsitory
             await _dbContext.SaveChangesAsync();
             return product;
         }
+        public async Task<bool> DeleteProduct(int id)
+        {
+            var product = await _dbContext.Products.FindAsync(id);
+            if (product == null)
+            {
+                return false; // Product not found
+            }
+
+            _dbContext.Products.Remove(product);
+            await _dbContext.SaveChangesAsync();
+            return true; // Deletion successful
+        }
     }
 }

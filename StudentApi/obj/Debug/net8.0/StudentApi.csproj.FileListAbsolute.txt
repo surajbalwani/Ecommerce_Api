@@ -170,3 +170,4 @@ C:\Suraj\Projects\Asp dotnet core with angular 18\StudentApi\StudentApi\obj\Debu
 C:\Suraj\Projects\Asp dotnet core with angular 18\StudentApi\StudentApi\obj\Debug\net8.0\StudentApi.pdb
 C:\Suraj\Projects\Asp dotnet core with angular 18\StudentApi\StudentApi\obj\Debug\net8.0\StudentApi.genruntimeconfig.cache
 C:\Suraj\Projects\Asp dotnet core with angular 18\StudentApi\StudentApi\obj\Debug\net8.0\ref\StudentApi.dll
+C:\Suraj\Projects\Asp dotnet core with angular 18\StudentApi\StudentApi\obj\Debug\net8.0\StudentApi.sourcelink.json
